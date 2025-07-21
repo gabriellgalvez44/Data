@@ -1,9 +1,11 @@
+function messageඞ() {
 console.log(`Your can use the following vars...
 credit (int var)
 loggedIn (float var)
 
 You can use the following functions with this script...
 logIn()`)
+}
 function applyScript(sou) {
 let s = document.createElement('script')
 s.src = sou
@@ -106,6 +108,7 @@ setInterval(() => {
 firebase.database().ref("users/" + toCodeඞ(loggedInIDඞ) + "/credit").once("value").then(snapshot => {
 credit = snapshot.val() || 0
 })
+messageඞ()
 }, 100)
 } else {
 if (prompt("Would you like to make an account?\nSubmit 1 if yes...") == 1) {
