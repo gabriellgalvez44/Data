@@ -4,7 +4,8 @@ credit (int var)
 loggedIn (float var)
 
 You can use the following functions with this script...
-logIn()`)
+logIn()
+spend(amu, id, act) - amu, you replace with the amount of credit they spend, id is the card ID of the person that'll earn the spent credit, and act is the .js code in a string to execute once successfully spent!`)
 }
 function applyScript(sou) {
 let s = document.createElement('script')
@@ -171,4 +172,24 @@ alert(`Your ID is: ${id}...
 BEFORE CLOSING THIS MESSAGE:
 Either screenshot/photo of, or copy this message`)
 navigator.clipboard.writeText(id)
+}
+function spend(amu, id, act) {
+if (!loggedIn) return
+if (amu <= 0) return
+if (credit < amu) return
+idExist(id, function(exists) {
+if (!exists) return
+const senderID = toCodeඞ(loggedInIDඞ)
+const newSenderCredit = credit - amu
+firebase.database().ref("users/" + senderID + "/credit").set(newSenderCredit, function(err) {
+if (!err) {
+firebase.database().ref("users/" + id + "/credit").once("value").then(s => firebase.database().ref("users/" + id + "/credit").set((s.val() || 0) + amu))
+try {
+eval(act)
+} catch (e) {
+console.error("Eval error:", e)
+}
+}
+})
+})
 }
