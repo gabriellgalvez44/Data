@@ -2,7 +2,8 @@ console.log(`Your can use the following vars...
 credit
 
 You can use the following functions with this script...
-logIn()`)
+logIn()
+loggedIn()`)
 function applyScript(sou) {
 let s = document.createElement('script')
 s.src = sou
@@ -165,4 +166,7 @@ alert(`Your ID is: ${id}...
 BEFORE CLOSING THIS MESSAGE:
 Either screenshot/photo of, or copy this message`)
 navigator.clipboard.writeText(id)
+}
+function loggedIn() {
+return loggedInIDඞ !== ""
 }
