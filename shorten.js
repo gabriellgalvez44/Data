@@ -1,10 +1,19 @@
 console.log(`You can use the following functions...
 
-shown(id, tf) - id is the id name as a string, tf is either true or false`)
+shown(id, tf) - id is the id name as a string, and tf is either true or false for visibility
+copy(text, tf) - text is the text you want to copy to clipboard as a string, and tf is true or false for a message popup feed when copied`)
 function shown(id, tf) {
 if (tf) {
 document.getElementById(id).style.display = ""
 } else {
 document.getElementById(id).style.display = "none"
+}
+}
+function copy(text, tf) {
+navigator.clipboard.writeText(text)
+if (tf) {
+alert(`Text copied to clipboard:
+
+${text}`)
 }
 }
