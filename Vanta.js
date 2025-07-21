@@ -1,8 +1,7 @@
 function applyScript(sou) {
-const script = document.createElement("script")
-script.src = sou
-script.async = true
-document.head.appendChild(script)
+let s = document.createElement('script')
+s.src = sou
+document.body.appendChild(s)
 }
 applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js")
 applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js")
