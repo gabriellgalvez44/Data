@@ -1,5 +1,7 @@
-console.log(`You can use the following functions with this script...
+console.log(`Your can use the following vars...
+credit
 
+You can use the following functions with this script...
 logIn()`)
 function applyScript(sou) {
 let s = document.createElement('script')
@@ -89,16 +91,16 @@ callback(snapshot.exists())
 callback(false)
 })
 }
-let loggedInID = ""
+let loggedInIDඞ = ""
 let credit = 0
 function logIn() {
 let id = prompt("Type in your account ID...")
 idExist(toCodeඞ(id), function(exists) {
 if (exists) {
-loggedInID = id;
+loggedInIDඞ = id;
 alert("You are logged in now! :D")
 setInterval(() => {
-firebase.database().ref("users/" + toCodeඞ(loggedInID) + "/credit").once("value").then(snapshot => {
+firebase.database().ref("users/" + toCodeඞ(loggedInIDඞ) + "/credit").once("value").then(snapshot => {
 credit = snapshot.val() || 0
 })
 }, 50)
