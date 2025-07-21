@@ -110,7 +110,7 @@ setInterval(() => {
 firebase.database().ref("users/" + toCodeඞ(loggedInIDඞ) + "/credit").once("value").then(snapshot => {
 credit = snapshot.val() || 0
 })
-}, 50)
+}, 100)
 } else {
 if (prompt("Would you like to make an account?\nSubmit 1 if yes...") == 1) {
 createIDඞ()
