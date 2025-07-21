@@ -1,3 +1,12 @@
+function applyScript(sou) {
+const script = document.createElement("script")
+script.src = sou
+script.async = true
+document.head.appendChild(script)
+}
+applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js")
+applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js")
+applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js")
 const firebaseConfig = {
 apiKey: "AIzaSyB13I2cnqM2A7HWmy-my_-PysxzWO27-Qg",
 authDomain: "vantacurrency.firebaseapp.com",
