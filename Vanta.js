@@ -3,6 +3,7 @@ let s = document.createElement('script')
 s.src = sou
 document.body.appendChild(s)
 }
+function apply() {
 applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js")
 applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics-compat.js")
 applyScript("https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js")
@@ -18,3 +19,4 @@ measurementId: "G-KDP3EYSSJ2"
 }
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
+}
