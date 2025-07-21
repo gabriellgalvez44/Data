@@ -1,9 +1,9 @@
 console.log(`Your can use the following vars...
-credit
+credit (int var)
+loggedIn (float var)
 
 You can use the following functions with this script...
-logIn()
-loggedIn()`)
+logIn()`)
 function applyScript(sou) {
 let s = document.createElement('script')
 s.src = sou
@@ -93,12 +93,14 @@ callback(false)
 })
 }
 let loggedInIDඞ = ""
+let loggedIn = false
 let credit = 0
 function logIn() {
 let id = prompt("Type in your account ID...")
 idExist(toCodeඞ(id), function(exists) {
 if (exists) {
-loggedInIDඞ = id;
+loggedInIDඞ = id
+loggedIn = true
 alert("You are logged in now! :D")
 setInterval(() => {
 firebase.database().ref("users/" + toCodeඞ(loggedInIDඞ) + "/credit").once("value").then(snapshot => {
@@ -166,7 +168,4 @@ alert(`Your ID is: ${id}...
 BEFORE CLOSING THIS MESSAGE:
 Either screenshot/photo of, or copy this message`)
 navigator.clipboard.writeText(id)
-}
-function loggedIn() {
-return loggedInIDඞ !== ""
 }
