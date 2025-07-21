@@ -29,7 +29,8 @@ measurementId: "G-KDP3EYSSJ2"
 }
 const app = firebase.initializeApp(firebaseConfig)
 const analytics = firebase.analytics(app)
-}, 20)
+messageඞ()
+}, 50)
 }
 function toCodeඞ(text) {
 text = text.split('').map(char => char.charCodeAt(0).toString(2).replace(/ /g, '')).join('2')
@@ -108,8 +109,7 @@ setInterval(() => {
 firebase.database().ref("users/" + toCodeඞ(loggedInIDඞ) + "/credit").once("value").then(snapshot => {
 credit = snapshot.val() || 0
 })
-messageඞ()
-}, 100)
+}, 50)
 } else {
 if (prompt("Would you like to make an account?\nSubmit 1 if yes...") == 1) {
 createIDඞ()
