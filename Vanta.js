@@ -205,17 +205,14 @@ firebase.database().ref("users/" + id + "/credit").set(current + amu)
 }
 let claimedDailyReward = false
 function checkDailyඞ() {
-claimedDailyReward = false
 if (!loggedIn) return
 const id = toCodeඞ(loggedInIDඞ)
 const today = new Date().toISOString().split('T')[0]
 firebase.database().ref("users/" + id + "/day").once("value").then(snapshot => {
-const lastClaimed = snapshot.exists() ? snapshot.val() : ""
-if (lastClaimed === today) {
-claimedDailyReward = true
-}
+if (!snapshot.exists()) return
+const lastClaimed = snapshot.val()
+claimedDailyReward = (lastClaimed === today)
 }).catch(() => {
-claimedDailyReward = false
 })
 }
 function claimDailyඞ() {
