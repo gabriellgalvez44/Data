@@ -17,3 +17,16 @@ alert(`Text copied to clipboard:
 ${text}`)
 }
 }
+function random(min, max) {
+let num = 0
+function cycle() {
+return Math.floor(Math.random() * (max - min + 1)) + min
+}
+while (cycle() !== cycle()) {
+num = cycle()
+}
+for (let i=0;i<cycle();i++) {
+cycle()
+}
+return num
+}
