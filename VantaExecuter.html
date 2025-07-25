@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<script src="https://gabriellgalvez44.github.io/Data/Vanta.js"></script>
+</head>
+<script>
+const params = new URLSearchParams(window.location.search);
+const codeParam = params.get("code")
+if (codeParam) {
+try {
+const decodedCode = decodeURIComponent(codeParam)
+const runCode = new Function(`return (async () => { ${decodedCode} })();`)
+runCode().finally(() => {
+setTimeout(() => window.close(), 200)
+})
+} catch (e) {
+console.error("Failed to run code:", e)
+}
+}
+</script>
+</html>
