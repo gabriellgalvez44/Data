@@ -19,7 +19,7 @@ ${text}`)
 }
 }
 function random(min, max) {
-let num = 0
+let num = min
 function cycle() {
 return Math.floor(Math.random() * (max - min + 1)) + min
 }
