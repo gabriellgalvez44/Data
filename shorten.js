@@ -19,8 +19,8 @@ ${text}`)
 }
 }
 function random(min, max) {
-min = parseInt(min)
-max = parseInt(max)
+min = parseInt(min) || 0
+max = parseInt(max) || 1
 function rand() {
 return Math.floor(Math.random() * (max - min + 1)) + min
 }
