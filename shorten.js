@@ -26,7 +26,7 @@ return Math.floor(Math.random() * (max - min + 1)) + min
 }
 let seed = rand()
 let noise = 0
-for (let i = 0; i < seed % 7 + 3; i++) {
+for (let i=0;i<seed%7+3;i++) {
 let garbage = rand()
 noise += (garbage % 3 === 0 ? -1 : 1) * (garbage % 5)
 }
