@@ -19,10 +19,10 @@ ${text}`)
 }
 }
 function random(min, max) {
-let num = min
 function cycle() {
 return Math.floor(Math.random() * (max - min + 1)) + min
 }
+let num = cycle()
 while (cycle() !== cycle()) {
 num = cycle()
 }
