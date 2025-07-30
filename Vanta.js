@@ -218,7 +218,8 @@ claimedDailyReward = (lastClaimed === today)
 function claimDailyඞ() {
 if (!loggedIn) return ""
 const id = toCodeඞ(loggedInIDඞ)
-const today = new Date().toISOString().split('T')[0]
+const now = new Date()
+const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString().split('T')[0]
 return firebase.database().ref("users/" + id + "/day").once("value").then(snapshot => {
 const lastClaimed = snapshot.exists() ? snapshot.val() : ""
 claimedDailyReward = (lastClaimed === today)
