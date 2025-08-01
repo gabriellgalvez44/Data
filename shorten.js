@@ -3,7 +3,8 @@ console.log(`You can use the following functions...
 shown(id, tf) - id is the id name as a string, and tf is either true or false for visibility
 copy(text, tf) - text is the text you want to copy to clipboard as a string, and tf is true or false for a message popup feed when copied
 random(min, max)`)
-document.body.innerHTML = `Test ${document.body.innerHTML}`
+document.body.id = "body"
+body.innerHTML = `Test ${document.body.innerHTML}`
 function shown(id, tf) {
 if (tf) {
 document.getElementById(id).style.display = ""
