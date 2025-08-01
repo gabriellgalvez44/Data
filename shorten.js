@@ -7,8 +7,10 @@ create(text, id) - text is the HTML code you are adding, and id is the id of the
 
 You can use the following IDs:
 html - instead of using document.documentElement, this is the shortened version this script provides for you :)
+head - instead of using document.head, this is the shortened version this script provides for you :)
 body - instead of using document.body, this is the shortened version this script provides for you :)`)
 document.documentElement.id = "html"
+document.head.id = "head"
 document.body.id = "body"
 body.innerHTML = `<link rel=stylesheet href=https://gabriellgalvez44.github.io/Data/shorten.css>
 ${document.body.innerHTML}
