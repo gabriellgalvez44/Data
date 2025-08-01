@@ -4,7 +4,23 @@ shown(id, tf) - id is the id name as a string, and tf is either true or false fo
 copy(text, tf) - text is the text you want to copy to clipboard as a string, and tf is true or false for a message popup feed when copied
 random(min, max)`)
 document.body.id = "body"
-body.innerHTML = `Test ${document.body.innerHTML}`
+body.innerHTML = `<link rel=stylesheet href=https://gabriellgalvez44.github.io/Data/shorten.css>
+${document.body.innerHTML}
+<hide>
+<div id=dඞ></div>
+</hide>`
+function create(text, id) {
+const sourceDiv = document.getElementById("dඞ")
+if (!sourceDiv) return
+sourceDiv.innerHTML = `<div id="iඞ">${text}</div>`
+const tempWrapper = document.getElementById("iඞ")
+const target = document.getElementById(id)
+if (!tempWrapper || !target) return
+while (tempWrapper.firstChild) {
+target.appendChild(tempWrapper.firstChild)
+}
+tempWrapper.remove()
+}
 function shown(id, tf) {
 if (tf) {
 document.getElementById(id).style.display = ""
