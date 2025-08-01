@@ -6,7 +6,9 @@ random(min, max)
 create(text, id) - text is the HTML code you are adding, and id is the id of the element you want to add this HTML code without affecting typed in text in other elements!
 
 You can use the following IDs:
+html - instead of using document.documentElement, this is the shortened version this script provides for you :)
 body - instead of using document.body, this is the shortened version this script provides for you :)`)
+document.documentElement.id = "html"
 document.body.id = "body"
 body.innerHTML = `<link rel=stylesheet href=https://gabriellgalvez44.github.io/Data/shorten.css>
 ${document.body.innerHTML}
