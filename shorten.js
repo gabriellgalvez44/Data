@@ -2,7 +2,11 @@ console.log(`You can use the following functions...
 
 shown(id, tf) - id is the id name as a string, and tf is either true or false for visibility
 copy(text, tf) - text is the text you want to copy to clipboard as a string, and tf is true or false for a message popup feed when copied
-random(min, max)`)
+random(min, max)
+create(text, id) - text is the HTML code you are adding, and id is the id of the element you want to add this HTML code without affecting typed in text in other elements!
+
+You can use the following IDs:
+body - instead of using document.body, this is the shortened version this script provides for you :)`)
 document.body.id = "body"
 body.innerHTML = `<link rel=stylesheet href=https://gabriellgalvez44.github.io/Data/shorten.css>
 ${document.body.innerHTML}
