@@ -1,0 +1,279 @@
+html, body {
+size: 100%;
+margin: 0px;
+cursor: default;
+}
+button:not(:active), label:not(:active), input[type=checkbox]:not(:active), input[type=range]::-webkit-slider-runnable-track, summary:not(:active), select:not(:active), input[type=color]:not(:active), input[type=radio]:not(:active) {
+cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+cursor: grab;
+}
+input[type=range]:active::-webkit-slider-runnable-track,
+input[type=range]:active::-webkit-slider-thumb {
+cursor: grabbing;
+}
+button:active, input[type=checkbox]:active, :disabled {
+opacity: .5;
+}
+:disabled {
+cursor: not-allowed;
+}
+left, right, [left], [right] {
+display: inline-block;
+width: 49%;
+}
+left, [left] {
+float: left;
+text-align: left;
+}
+right, [right] {
+float: right;
+text-align: right;
+}
+hide, hidden, [hide], [hidden] {
+display: none;
+}
+[borderless], [noborder], [no-border] {
+border: none;
+outline: none;
+}
+separate, [separate] {
+display: inline-block;
+vertical-align: top;
+}
+breakline {
+display: block;
+width: 99vw;
+border: 1px solid black;
+background: black;
+height: 1px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+/* Dark theme */
+html[theme=dark], html[theme=dark] body {
+background: #121214;
+color: white;
+}
+html[theme=dark] button, html[theme=dark] input, html[theme=dark] select {
+background: #202024;
+color: white;
+border: 1px solid #3F3F3F;
+}
+html[theme=dark] [section], html[theme=dark] textarea {
+background: #82838B;
+}
+breakline {
+border: 1px solid grey;
+background: grey;
+}
+/* Fancy mode */
+html[mode=fancy] input[type=range]::-webkit-slider-runnable-track {
+background-color: #ddd;
+height: 10px;
+border-radius: 10px;
+overflow: hidden;
+}
+html[mode=fancy] input[type=range]::-webkit-slider-thumb {
+background-color: #333;
+border: none;
+-webkit-appearance: none;
+}
+html[mode=fancy] input[type=range]::-webkit-slider-thumb:hover,
+html[mode=fancy] input[type=range]::-webkit-slider-thumb:focus {
+background-color: #666;
+}
+html[mode=fancy] input[type=checkbox][model=switch] {
+transition: all 0.3s ease-in-out;
+-webkit-appearance: none;
+width: 40px;
+height: 20px;
+border-radius: 20px;
+background-color: red;
+position: relative;
+top: 8px;
+}
+html[mode=fancy] input[type=checkbox][model=switch]:checked {
+transition: all 0.3s ease-in-out;
+background-color: #4CAF50;
+}
+html[mode=fancy] input[type=checkbox][model=switch]::before {
+content: "";
+position: absolute;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+top: 50%;
+left: 2px;
+transform: translateY(-50%);
+background-color: #fff;
+transition: all 0.3s ease-in-out;
+}
+html[mode=fancy] input[type=checkbox][model=switch]:checked::before {
+transition: all 0.3s ease-in-out;
+left: calc(100% - 20px);
+}
+html[mode=fancy] input[type=radio] {
+-webkit-appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+border: 2px solid grey;
+outline: none;
+position: relative;
+top: 3px;
+}
+html[mode=fancy] input[type=radio]:checked {
+background-color: gold;
+}
+html[mode=fancy] input[type=radio]:hover:not(:checked) {
+background-color: #f1f1f1;
+}
+html[mode=fancy] input[type=radio]:focus {
+box-shadow: 0 0 5px gold;
+}
+html[mode=fancy] select {
+border: none;
+border-radius: 5px;
+font-size: 16px;
+padding: 10px;
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+outline: none;
+}
+html[mode=fancy] select::-ms-expand {
+display: none;
+}
+html[mode=fancy] select:hover {
+transition: .5s;
+outline: none;
+box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+html[mode=fancy] select::-webkit-select {
+appearance: none;
+opacity: .5
+}
+html[mode=fancy] select::after {
+content: "\25BC";
+position: absolute;
+top: 50%;
+right: 10px;
+transform: translateY(-50%);
+font-size: 20px;
+pointer-events: none;
+}
+html[mode=fancy] select {
+transition: 1s;
+}
+html[mode=fancy] select option:checked {
+background-color: #ccc;
+color: #fff;
+font-weight: bold;
+}
+html[mode=fancy] select:hover {
+border-color: #aaa;
+}
+html[mode=fancy] div[progress] {
+width: 100px;
+height: 100px;
+background: #767676;
+position: relative;
+animation-name: anim;
+animation-duration: 3s;
+animation-fill-mode: both;
+animation-iteration-count: infinite;
+animation-direction: alternate;  
+}
+html[mode=fancy] div[progressbar] {
+width: 100px;
+height: 100px;
+background: #767676;
+position: relative;
+border-radius: 50%;
+animation-name: anim2;
+animation-duration: 6s;
+animation-fill-mode: both;
+animation-iteration-count: infinite;
+}
+@keyframes anim {
+0% {
+border-radius: 0%;
+background: red;
+}
+25% {
+border-radius: 25%;
+transform: rotate(22.5deg);
+background: yellow;
+}
+50% {
+transform: rotate(45deg);
+border-radius: 50%;
+background: lime;
+}
+75% {
+border-radius: 25%;
+transform: rotate(67.5deg);
+background: cyan;
+}
+100% {
+border-radius: 0%;
+background: purple;
+}
+}
+@keyframes anim2 {
+0% {
+left: -10%;
+border-radius: 0%;
+background: red;
+border-radius: 50%;
+}
+25% {
+left: 10%;
+border-radius: 0%;
+transform: rotate(22.5deg);
+background: yellow;
+}
+50% {
+left: -10%;
+transform: rotate(45deg);
+background: lime;
+border-radius: 50%;
+}
+75% {
+left: 10%;
+border-radius: 0%;
+transform: rotate(67.5deg);
+background: cyan;
+}
+100% {
+left: -10%;
+border-radius: 0%;
+background: purple;
+border-radius: 50%;
+}
+}
+html[mode=fancy] code, html[mode=fancy] [code], html[mode=fancy] [coded] {
+background: #5D5B5B;
+font-family: monospace;
+color: #20B91D;
+display: inline-block;
+resize: none;
+border: none;
+outline: none;
+}
+html[mode=fancy] textarea[code], html[mode=fancy] textarea[coded] {
+height: 150px;
+width: 500px;
+}
+html[mode=fancy] icon, html[mode=fancy] [icon] {
+border: 1px solid gray;
+border-radius: 11px;
+min-width: 20px;
+min-height: 20px;
+display: inline-block;
+}
+html[mode=fancy] hud, html[mode=fancy] HUD, html[mode=fancy] [hud], html[mode=fancy] [HUD] {
+position: fixed;
+}
