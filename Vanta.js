@@ -6,7 +6,9 @@ claimedDailyReward (float var)
 
 You can use the following functions with this script...
 logIn()
-spend(amu, id, act) - amu, you replace with the amount of credit they spend, id is the card ID of the person that'll earn the spent credit, and act is the .js code in a string to execute once successfully spent!`)
+spend(amu, id, act) - amu, you replace with the amount of credit they spend, id is the card ID of the person that'll earn the spent credit, and act is the .js code in a string to execute once successfully spent!
+createGift(amu) - amu is the amount you want to put as a gift card
+redeemGift(code) - code is the gift card code to redeem`)
 }
 function applyScript(sou) {
 let s = document.createElement('script')
@@ -231,5 +233,59 @@ return lastClaimed
 }).catch(() => {
 claimedDailyReward = false
 return ""
+})
+}
+function createGift(amu) {
+if (!loggedIn || amu < 1 || amu > credit) {
+alert("Invalid amount. You must enter a whole number you own (at least 1).")
+return
+}
+const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+function generateCode(len) {
+let code = ''
+for (let i=0;i<len;i++) {
+code += chars.charAt(Math.floor(Math.random() * chars.length))
+}
+return code
+}
+function codeExists(code, callback) {
+firebase.database().ref('Gift codes/' + code).once('value')
+.then(snapshot => callback(snapshot.exists()))
+.catch(() => callback(false))
+}
+function tryCreateGift(len = 8) {
+const code = generateCode(len)
+codeExists(code, exists => {
+if (!exists) {
+firebase.database().ref('Gift codes/' + code).set({ credit: amu }, err => {
+if (!err) {
+spend(amu, toCodeඞ(loggedInIDඞ), `alert("Gift code created: ${code}");`)
+} else {
+alert("Error creating gift code.")
+}
+})
+} else {
+tryCreateGift(len + 1)
+}
+})
+}
+tryCreateGift()
+}
+function redeemGift(code) {
+if (!loggedIn || !code) return
+firebase.database().ref('Gift codes/' + code).once('value').then(snapshot => {
+if (!snapshot.exists()) {
+alert("That code doesn’t exist.")
+return
+}
+const amount = snapshot.val().credit || 0
+firebase.database().ref('Gift codes/' + code).remove().then(() => {
+earnඞ(amount)
+alert(`You have redeemed ${amount} Vanta credit!`)
+}).catch(() => {
+alert("Failed to redeem code.")
+})
+}).catch(() => {
+alert("That code doesn’t exist.")
 })
 }
