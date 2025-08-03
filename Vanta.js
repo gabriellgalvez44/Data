@@ -235,7 +235,7 @@ claimedDailyReward = false
 return ""
 })
 }
-function createGift(amu) {
+function createGiftඞ(amu) {
 if (!loggedIn || amu < 1 || amu > credit) {
 alert("Invalid amount. You must enter a whole number you own (at least 1).")
 return
@@ -280,7 +280,7 @@ tryCreateGift(len + 1)
 }
 tryCreateGift()
 }
-function redeemGift(code) {
+function redeemGiftඞ(code) {
 if (!loggedIn || !code) return
 firebase.database().ref('Gift codes/' + code).once('value').then(snapshot => {
 if (!snapshot.exists()) {
