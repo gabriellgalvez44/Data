@@ -257,15 +257,24 @@ function tryCreateGift(len = 8) {
 const code = generateCode(len)
 codeExists(code, exists => {
 if (!exists) {
-firebase.database().ref('Gift codes/' + code).set({ credit: amu }, err => {
-if (!err) {
-spend(amu, toCodeඞ(loggedInIDඞ), `alert("Gift code created: ${code}");`)
+const id = toCodeඞ(loggedInIDඞ)
+const newCredit = credit - amu
+firebase.database().ref('users/' + id + '/credit').set(newCredit, err => {
+if (err) {
+alert("Failed to deduct Vanta credit.")
+return
+}
+firebase.database().ref('Gift codes/' + code).set({ credit: amu }, err2 => {
+if (!err2) {
+alert("Gift code created: " + code)
 } else {
-alert("Error creating gift code.")
+firebase.database().ref('users/' + id + '/credit').set(credit)
+alert("Error creating gift code. Refunding credit.")
 }
 })
+})
 } else {
-tryCreateGift(len + 1)
+tryCreateGift(len + 1) 
 }
 })
 }
