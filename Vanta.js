@@ -6,9 +6,7 @@ claimedDailyReward (float var)
 
 You can use the following functions with this script...
 logIn()
-spend(amu, id, act) - amu, you replace with the amount of credit they spend, id is the card ID of the person that'll earn the spent credit, and act is the .js code in a string to execute once successfully spent!
-createGift(amu) - amu is the amount you want to put as a gift card
-redeemGift(code) - code is the gift card code to redeem`)
+spend(amu, id, act) - amu, you replace with the amount of credit they spend, id is the card ID of the person that'll earn the spent credit, and act is the .js code in a string to execute once successfully spent!`)
 }
 function applyScript(sou) {
 let s = document.createElement('script')
