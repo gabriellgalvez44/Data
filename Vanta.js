@@ -3,6 +3,7 @@ console.log(`Your can use the following vars...
 credit (int var)
 loggedIn (float var)
 claimedDailyReward (float var)
+placement (int var)
 
 You can use the following functions with this script...
 logIn()
@@ -100,6 +101,7 @@ callback(false)
 let loggedInIDඞ = ""
 let loggedIn = false
 let credit = 0
+let placement = 0
 function logIn() {
 let id = prompt("Type in your account ID...")
 idExist(toCodeඞ(id), function(exists) {
@@ -109,6 +111,7 @@ loggedIn = true
 alert("You are logged in now! :D")
 setInterval(() => {
 checkDailyඞ()
+placement = placeඞ()
 firebase.database().ref("users/" + toCodeඞ(loggedInIDඞ) + "/credit").once("value").then(snapshot => {
 credit = snapshot.val() || 0
 })
@@ -294,5 +297,27 @@ alert("Failed to redeem code.")
 })
 }).catch(() => {
 alert("That code doesn’t exist.")
+})
+}
+function placeඞ() {
+if (!loggedIn) {
+alert("You must be logged in to check your placement.")
+return
+}
+const yourCredit = credit
+firebase.database().ref('users').once('value').then(snapshot => {
+const allCredits = []
+snapshot.forEach(userSnap => {
+const data = userSnap.val()
+if (data && typeof data.credit === 'number') {
+allCredits.push(data.credit)
+}
+})
+const sortedUniqueCredits = [...new Set(allCredits)].sort((a, b) => b - a)
+const index = sortedUniqueCredits.indexOf(yourCredit)
+placement = index !== -1 ? index + 1 : sortedUniqueCredits.length + 1
+console.log(`Your placement is: ${placement}`)
+}).catch(err => {
+console.error("Failed to fetch credit data:", err)
 })
 }
