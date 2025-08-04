@@ -316,7 +316,7 @@ allCredits.push(data.credit)
 const sortedUniqueCredits = [...new Set(allCredits)].sort((a, b) => b - a)
 const index = sortedUniqueCredits.indexOf(yourCredit)
 if (index !== -1) {
-if (placement == null || placement == undefined) return
+if (index + 1 == null || index + 1 == undefined) return
 placement = index + 1
 console.log(`Your placement is: ${placement}`)
 } else {
