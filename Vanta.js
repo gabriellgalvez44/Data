@@ -316,9 +316,9 @@ allCredits.push(data.credit)
 const sortedUniqueCredits = [...new Set(allCredits)].sort((a, b) => b - a)
 const index = sortedUniqueCredits.indexOf(yourCredit)
 if (index !== -1) {
-if (index + 1 == null || index + 1 == undefined) return
-placement = index + 1
-console.log(`Your placement is: ${placement}`)
+let nval = index + 1
+if (nval + 1 == null || nval + 1 == undefined) return
+placement = nval + 1
 } else {
 console.warn("Your credit value was not found in the list. Placement unchanged.")
 }
