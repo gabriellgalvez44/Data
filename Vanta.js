@@ -111,7 +111,7 @@ loggedIn = true
 alert("You are logged in now! :D")
 setInterval(() => {
 checkDailyඞ()
-placement = placeඞ()
+placeඞ()
 firebase.database().ref("users/" + toCodeඞ(loggedInIDඞ) + "/credit").once("value").then(snapshot => {
 credit = snapshot.val() || 0
 })
@@ -315,8 +315,12 @@ allCredits.push(data.credit)
 })
 const sortedUniqueCredits = [...new Set(allCredits)].sort((a, b) => b - a)
 const index = sortedUniqueCredits.indexOf(yourCredit)
-placement = index !== -1 ? index + 1 : sortedUniqueCredits.length + 1
+if (index !== -1) {
+placement = index + 1
 console.log(`Your placement is: ${placement}`)
+} else {
+console.warn("Your credit value was not found in the list. Placement unchanged.")
+}
 }).catch(err => {
 console.error("Failed to fetch credit data:", err)
 })
