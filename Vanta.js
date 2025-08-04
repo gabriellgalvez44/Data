@@ -318,7 +318,7 @@ const index = sortedUniqueCredits.indexOf(yourCredit)
 if (index !== -1) {
 let nval = index + 1
 if (nval == null || nval == undefined) return
-placement = nval + 1
+placement = nval
 } else {
 console.warn("Your credit value was not found in the list. Placement unchanged.")
 }
