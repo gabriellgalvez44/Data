@@ -196,10 +196,23 @@ window.chat = {
 code: "",
 chatID: "",
 clear() {
-
+if (!this.code) {
+console.error("chat.code is not set")
+return
+}
+firebase.database().ref(this.code).remove()
+.then(() => console.log(`Cleared chat folder: ${this.code}`))
+.catch(err => console.error("Error clearing chat:", err))
 },
 send(message) {
-
+if (!this.code) {
+console.error("chat.code is not set")
+return
+}
+firebase.database().ref(this.code).push(text)
+.then(() => console.log(`Sent message to ${this.code}: ${text}`))
+.catch(err => console.error("Error sending message:", err))
+}
 }
 }
 }
