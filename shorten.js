@@ -5,6 +5,8 @@ copy(text, tf) - text is the text you want to copy to clipboard as a string, and
 random(min, max)
 create(text, id) - text is the HTML code you are adding, and id is the id of the element you want to add this HTML code without affecting typed in text in other elements!
 
+--------------------
+
 You can use the following lines below for preventing actions in your web page...
 prevent.inspect
 prevent.rightClicking
@@ -12,6 +14,8 @@ prevent.pasting
 
 If you wish to add a message that pops up when they try to perform these actions, add this pattern to the end of your line and set the message to whatever you wish for it to be...
 .log = "Your message goes here..."
+
+--------------------
 
 You can use the following IDs:
 html - instead of using document.documentElement, this is the shortened version this script provides for you :)
