@@ -17,6 +17,11 @@ If you wish to add a message that pops up when they try to perform these actions
 
 --------------------
 
+Use these lines for installing and managing private text chatting... (THIS IS STILL IN WORKING PROGRESS!!!)
+install.textChat
+
+--------------------
+
 You can use the following IDs:
 html - instead of using document.documentElement, this is the shortened version this script provides for you :)
 head - instead of using document.head, this is the shortened version this script provides for you :)
@@ -141,5 +146,36 @@ get log() {
 return prevent._pastingLog;
 }
 }
+}
+}
+const install = {
+get textChat() {
+(() => {
+const firebaseScripts = [
+"https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js",
+"https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js",
+"https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"
+]
+firebaseScripts.forEach(src => {
+if (!head.querySelector(`script[src="${src}"]`)) {
+let script = document.createElement("script")
+script.src = src
+script.defer = true
+head.appendChild(script)
+}
+})
+})()
+const firebaseConfig = {
+apiKey: "AIzaSyD3M5dR4c-tmUeNDlhlGP0XTLXtHWaVqlU",
+authDomain: "chat-81dbd.firebaseapp.com",
+databaseURL: "https://chat-81dbd-default-rtdb.firebaseio.com",
+projectId: "chat-81dbd",
+storageBucket: "chat-81dbd.firebasestorage.app",
+messagingSenderId: "1090313558017",
+appId: "1:1090313558017:web:3c1dd724d18c2f24f80800",
+measurementId: "G-TDQHNW6R71"
+}
+const app = initializeApp(firebaseConfig)
+const analytics = getAnalytics(app)
 }
 }
