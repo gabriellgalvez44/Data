@@ -256,12 +256,12 @@ const html = `<!DOCTYPE html>
 </head>
 <body style="margin:0;overflow:hidden;height:100%;">
 <iframe id="masked_iframe" style="width:100vw;height:100vh;border:none"></iframe>
-<script src="https://gabriellgalvez44.github.io/Data/shorten.js"></script>
+<script src="https://gabriellgalvez44.github.io/Data/shorten.js"></script`+`>
 <script>
 try {
 document.getElementById("masked_iframe").src = decodeURIComponent("${encoded}")
 } catch(e) {}
-</script>
+</script`+`>
 </body>
 </html>`
 win.document.open()
