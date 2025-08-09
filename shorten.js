@@ -4,6 +4,7 @@ shown(id, tf) - id is the id name as a string, and tf is either true or false fo
 copy(text, tf) - text is the text you want to copy to clipboard as a string, and tf is true or false for a message popup feed when copied
 random(min, max)
 create(text, id) - text is the HTML code you are adding, and id is the id of the element you want to add this HTML code without affecting typed in text in other elements!
+openMasked(url) - replace url with the url you want to open in a masked window but in as a string, masked previews a website without directly exposing the url in the url bar!
 
 --------------------
 
@@ -236,5 +237,29 @@ targetEl.innerHTML = html
 })
 .catch(err => console.error("Error fetching messages:", err))
 }, 1)
+}
+}
+function openMasked(url) {
+const win = window.open("about:blank", "_blank", "noopener,noreferrer");
+if (win) {
+win.document.open();
+win.document.write(`<!DOCTYPR html>
+<html lang=en>
+<body>
+<iframe src="${url}"></iframe>
+</body>
+<script src=https://gabriellgalvez44.github.io/Data/shorten.js></script>
+<style>
+html, body {
+overflow: hidden;
+}
+iframe {
+width: 100vw;
+height: 100vh;
+border: none;
+}
+</style>
+</html>`)
+win.document.close()
 }
 }
