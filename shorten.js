@@ -17,7 +17,7 @@ If you wish to add a message that pops up when they try to perform these actions
 
 --------------------
 
-Use these lines for installing and managing private text chatting... (THIS IS STILL IN WORKING PROGRESS!!!)
+Use this line for installing and managing private text chatting... (THIS IS STILL IN WORKING PROGRESS!!!)
 install.textChat
 
 Use this to configure/manage your live private text chatting...
