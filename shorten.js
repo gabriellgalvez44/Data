@@ -51,6 +51,21 @@ link.href = cssHref
 head.appendChild(link)
 }
 })()
+(() => {
+const firebaseScripts = [
+"https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js",
+"https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js",
+"https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"
+]
+firebaseScripts.forEach(src => {
+if (!head.querySelector(`script[src="${src}"]`)) {
+let script = document.createElement("script")
+script.src = src
+script.defer = true
+head.appendChild(script)
+}
+})
+})()
 body.innerHTML = `${document.body.innerHTML}
 <hide>
 <div id=dඞ></div>
@@ -154,21 +169,6 @@ return prevent._pastingLog;
 }
 const install = {
 get textChat() {
-(() => {
-const firebaseScripts = [
-"https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js",
-"https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js",
-"https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"
-]
-firebaseScripts.forEach(src => {
-if (!head.querySelector(`script[src="${src}"]`)) {
-let script = document.createElement("script")
-script.src = src
-script.defer = true
-head.appendChild(script)
-}
-})
-})()
 const firebaseConfig = {
 apiKey: "AIzaSyD3M5dR4c-tmUeNDlhlGP0XTLXtHWaVqlU",
 authDomain: "chat-81dbd.firebaseapp.com",
