@@ -216,4 +216,3 @@ firebase.database().ref(this.code).push(text)
 }
 }
 }
-}
