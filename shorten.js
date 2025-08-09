@@ -20,6 +20,10 @@ If you wish to add a message that pops up when they try to perform these actions
 Use these lines for installing and managing private text chatting... (THIS IS STILL IN WORKING PROGRESS!!!)
 install.textChat
 
+Use this to configure/manage your live private text chatting...
+chat.code = "Your private text chat code goes here..."
+chat.chatID = "The ID name of the element that'll visualize the html contents of the chat will go here..."
+
 --------------------
 
 You can use the following IDs:
@@ -177,5 +181,15 @@ measurementId: "G-TDQHNW6R71"
 }
 const app = initializeApp(firebaseConfig)
 const analytics = getAnalytics(app)
+const chat = {
+code: "",
+chatID: "",
+clear() {
+
+},
+send(message) {
+
+}
+}
 }
 }
