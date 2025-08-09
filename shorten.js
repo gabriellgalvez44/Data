@@ -28,7 +28,11 @@ chat.chatID = "The ID name of the element that'll visualize the html contents of
 
 You can use the following IDs:
 html - instead of using document.documentElement, this is the shortened version this script provides for you :)
-head - instead of using document.head, this is the shortened version this script provides for you :)`)
+head - instead of using document.head, this is the shortened version this script provides for you :)
+body - instead of using document.body, this is the shortened version this script provides for you :)`)
+document.documentElement.id = "html"
+document.head.id = "head"
+document.body.id = "body"
 if (!document.head) {
 const head = document.createElement('head')
 const html = document.documentElement;
@@ -38,8 +42,6 @@ html.insertBefore(head, html.firstChild)
 html.appendChild(head)
 }
 }
-document.documentElement.id = "html"
-document.head.id = "head"
 (() => {
 const cssHref = "https://gabriellgalvez44.github.io/Data/shorten.css"
 if (!head.querySelector(`link[href="${cssHref}"]`)) {
