@@ -181,7 +181,7 @@ measurementId: "G-TDQHNW6R71"
 }
 setTimeout(function(){
 const app = firebase.initializeApp(firebaseConfig)
-const analytics = firebase.analytics(app)
+const analytics = firebase.analytics()
 }, 200)
 const chat = {
 code: "",
