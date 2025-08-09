@@ -51,21 +51,24 @@ link.href = cssHref
 head.appendChild(link)
 }
 })()
-(() => {
-const firebaseScripts = [
-"https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js",
-"https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js",
-"https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"
-]
-firebaseScripts.forEach(src => {
-if (!head.querySelector(`script[src="${src}"]`)) {
-let script = document.createElement("script")
-script.src = src
-script.defer = true
-head.appendChild(script)
+if (!head.querySelector('script[src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"]')) {
+const script1 = document.createElement("script")
+script1.src = "https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"
+script1.defer = true
+head.appendChild(script1)
 }
-})
-})()
+if (!head.querySelector('script[src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"]')) {
+const script2 = document.createElement("script")
+script2.src = "https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"
+script2.defer = true
+head.appendChild(script2)
+}
+if (!head.querySelector('script[src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"]')) {
+const script3 = document.createElement("script")
+script3.src = "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"
+script3.defer = true
+head.appendChild(script3)
+}
 body.innerHTML = `${document.body.innerHTML}
 <hide>
 <div id=dඞ></div>
