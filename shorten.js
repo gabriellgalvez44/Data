@@ -243,7 +243,7 @@ function openMasked(url) {
 const win = window.open("about:blank", "_blank", "noopener,noreferrer");
 if (win) {
 win.document.open();
-win.document.write(`<!DOCTYPR html>
+win.document.write(`<!DOCTYPE html>
 <html lang=en>
 <body>
 <iframe src="${url}"></iframe>
