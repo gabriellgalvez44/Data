@@ -33,8 +33,16 @@ html.appendChild(head)
 document.documentElement.id = "html"
 document.head.id = "head"
 document.body.id = "body"
-body.innerHTML = `<link rel=stylesheet href=https://gabriellgalvez44.github.io/Data/shorten.css>
-${document.body.innerHTML}
+(() => {
+const cssHref = "https://gabriellgalvez44.github.io/Data/shorten.css";
+if (!head.querySelector(`link[href="${cssHref}"]`)) {
+let link = document.createElement("link")
+link.rel = "stylesheet"
+link.href = cssHref
+head.appendChild(link)
+}
+})()
+body.innerHTML = `${document.body.innerHTML}
 <hide>
 <div id=dඞ></div>
 </hide>`
