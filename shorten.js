@@ -21,6 +21,15 @@ You can use the following IDs:
 html - instead of using document.documentElement, this is the shortened version this script provides for you :)
 head - instead of using document.head, this is the shortened version this script provides for you :)
 body - instead of using document.body, this is the shortened version this script provides for you :)`)
+if (!document.head) {
+const head = document.createElement('head')
+const html = document.documentElement;
+if (html.firstChild) {
+html.insertBefore(head, html.firstChild)
+} else {
+html.appendChild(head)
+}
+}
 document.documentElement.id = "html"
 document.head.id = "head"
 document.body.id = "body"
