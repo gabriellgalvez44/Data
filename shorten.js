@@ -23,6 +23,8 @@ install.textChat
 Use this to configure/manage your live private text chatting...
 chat.code = "Your private text chat code goes here..."
 chat.chatID = "The ID name of the element that'll visualize the html contents of the chat will go here..."
+chat.send("Message goes here...")
+chat.clear()
 
 Make sure when you set your chat code and chatID, it has a 200 millisecond delay, do it by this...
 
