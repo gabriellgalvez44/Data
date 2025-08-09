@@ -179,8 +179,8 @@ messagingSenderId: "1090313558017",
 appId: "1:1090313558017:web:3c1dd724d18c2f24f80800",
 measurementId: "G-TDQHNW6R71"
 }
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
+const app = firebase.initializeApp(firebaseConfig)
+const analytics = firebase.analytics(app)
 const chat = {
 code: "",
 chatID: "",
