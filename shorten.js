@@ -179,8 +179,10 @@ messagingSenderId: "1090313558017",
 appId: "1:1090313558017:web:3c1dd724d18c2f24f80800",
 measurementId: "G-TDQHNW6R71"
 }
+setTimeout(function(){
 const app = firebase.initializeApp(firebaseConfig)
 const analytics = firebase.analytics(app)
+}, 200)
 const chat = {
 code: "",
 chatID: "",
