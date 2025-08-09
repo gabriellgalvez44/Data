@@ -5,6 +5,14 @@ copy(text, tf) - text is the text you want to copy to clipboard as a string, and
 random(min, max)
 create(text, id) - text is the HTML code you are adding, and id is the id of the element you want to add this HTML code without affecting typed in text in other elements!
 
+You can use the following lines below for preventing actions in your web page...
+prevent.inspect
+prevent.rightClicking
+prevent.pasting
+
+If you wish to add a message that pops up when they try to perform these actions, add this pattern to the end of your line and set the message to whatever you wish for it to be...
+.log = "Your message goes here..."
+
 You can use the following IDs:
 html - instead of using document.documentElement, this is the shortened version this script provides for you :)
 head - instead of using document.head, this is the shortened version this script provides for you :)
@@ -58,4 +66,59 @@ noise += (garbage % 3 === 0 ? -1 : 1) * (garbage % 5)
 }
 let result = seed + Math.floor(noise / 3)
 return Math.max(min, Math.min(max, result))
+}
+const prevent = {
+_inspectLog: null,
+get inspect() {
+document.addEventListener("keydown", (e) => {
+if (e.ctrlKey && e.key.toLowerCase() === "i") {
+e.preventDefault()
+if (prevent._inspectLog) {
+alert(prevent._inspectLog)
+}
+}
+})
+return {
+set log(msg) {
+prevent._inspectLog = msg
+},
+get log() {
+return prevent._inspectLog
+}
+}
+},
+get rightClicking() {
+document.addEventListener("contextmenu", (e) => {
+e.preventDefault()
+if (prevent._rightClickingLog) {
+alert(prevent._rightClickingLog)
+}
+})
+return {
+set log(msg) {
+prevent._rightClickingLog = msg
+},
+get log() {
+return prevent._rightClickingLog
+}
+}
+},
+get pasting() {
+document.addEventListener("keydown", (e) => {
+if (e.ctrlKey && e.key.toLowerCase() === "v") {
+e.preventDefault()
+if (prevent._pastingLog) {
+alert(prevent._pastingLog)
+}
+}
+})
+return {
+set log(msg) {
+prevent._pastingLog = msg;
+},
+get log() {
+return prevent._pastingLog;
+}
+}
+}
 }
