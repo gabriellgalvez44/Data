@@ -240,26 +240,32 @@ targetEl.innerHTML = html
 }
 }
 function openMasked(url) {
-const win = window.open("about:blank", "_blank", "noopener,noreferrer");
-if (win) {
-win.document.open();
-win.document.write(`<!DOCTYPE html>
+const features = "toolbar=no,menubar=no,location=no,status=no,resizable=yes,scrollbars=yes,width=1000,height=700"
+const name = "masked_" + Date.now()
+const win = window.open("about:blank", name, features)
+if (!win) return null
+try {
+win.opener = null
+} catch (e) {}
+const encoded = encodeURIComponent(String(url))
+const html = `<!DOCTYPE html>
 <html lang=en>
-<body>
-<iframe src="${url}"></iframe>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body style="margin:0;overflow:hidden;height:100%;">
+<iframe id="masked_iframe" style="width:100vw;height:100vh;border:none"></iframe>
+<script src="https://gabriellgalvez44.github.io/Data/shorten.js"></script>
+<script>
+try {
+document.getElementById("masked_iframe").src = decodeURIComponent("${encoded}")
+} catch(e) {}
+</script>
 </body>
-<script src=https://gabriellgalvez44.github.io/Data/shorten.js></script>
-<style>
-html, body {
-overflow: hidden;
-}
-iframe {
-width: 100vw;
-height: 100vh;
-border: none;
-}
-</style>
-</html>`)
+</html>`
+win.document.open()
+win.document.write(html)
 win.document.close()
-}
+return win
 }
