@@ -69,6 +69,12 @@ script3.src = "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js
 script3.defer = true
 head.appendChild(script3)
 }
+if (!head.querySelector('script[src="https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics-compat.js"]')) {
+const script4 = document.createElement("script")
+script4.src = "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics-compat.js"
+script4.defer = true
+head.appendChild(script4)
+}
 body.innerHTML = `${document.body.innerHTML}
 <hide>
 <div id=dඞ></div>
