@@ -192,7 +192,7 @@ setTimeout(function(){
 const app = firebase.initializeApp(firebaseConfig)
 const analytics = firebase.analytics()
 }, 200)
-const chat = {
+window.chat = {
 code: "",
 chatID: "",
 clear() {
