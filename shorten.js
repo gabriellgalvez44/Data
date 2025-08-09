@@ -214,5 +214,19 @@ firebase.database().ref(this.code).push(text)
 .catch(err => console.error("Error sending message:", err))
 }
 }
+setInterval(() => {
+if (!chat.code || !chat.chatID) return
+const targetEl = document.getElementById(chat.chatID)
+if (!targetEl) return
+firebase.database().ref(chat.code).once("value")
+.then(snapshot => {
+let html = ""
+snapshot.forEach(child => {
+html += `<div>${child.val()}</div>`
+})
+targetEl.innerHTML = html
+})
+.catch(err => console.error("Error fetching messages:", err))
+}, 1)
 }
 }
